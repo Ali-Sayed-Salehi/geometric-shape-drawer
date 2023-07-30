@@ -10,7 +10,6 @@
 
 class Triangle : public Shape{
 protected:
-    int base{};
 
 public:
     Triangle() = delete;
@@ -18,19 +17,9 @@ public:
     Triangle(Triangle&&) = default;
     Triangle& operator=(const Triangle&) = default;
     Triangle& operator=(Triangle&&) = default;
-    virtual ~Triangle() = default;
+    ~Triangle() override = default;
 
-    explicit Triangle(int base, const std::string& name, char pen = '*');
-
-    // Getter for 'base'
-    int getBase() const {
-        return base;
-    }
-
-    // Setter for 'base'
-    void setBase(int newBase) {
-        base = newBase;
-    }
+    explicit Triangle(const std::string& name, char pen = '*');
 
 };
 

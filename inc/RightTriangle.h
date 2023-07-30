@@ -1,0 +1,14 @@
+//
+// Created by Ali Sayed Salehi on 2023-07-30.
+//
+
+#ifndef GEOMETRIC_SHAPE_DRAWER_RIGHTTRIANGLE_H
+#define GEOMETRIC_SHAPE_DRAWER_RIGHTTRIANGLE_H
+
+
+class RightTriangle {
+
+};
+
+
+#endif //GEOMETRIC_SHAPE_DRAWER_RIGHTTRIANGLE_H
