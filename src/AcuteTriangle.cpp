@@ -9,11 +9,16 @@
 AcuteTriangle::AcuteTriangle(int base, int height, const std::string &name, char pen) :
     Triangle(name, pen) {
 
-    if (base % 2 == 1) {
-        this->base = base;
+    if (base >= 1) {
+        if (base % 2 == 1) {
+            this->base = base;
+        } else {
+            std::cerr << "Error: base must be odd. Setting the next odd value.\n";
+            this->base = base + 1;
+        }
     } else {
-        std::cerr << "Error: base must be odd. Setting the next odd value.\n";
-        this->base = base + 1;
+        std::cerr << "Error: base must be greater than 1. Setting default value (1).\n";
+        this->base = 1;
     }
 
     this->height = (base + 1) / 2;
