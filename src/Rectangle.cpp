@@ -4,17 +4,33 @@
 
 #include <sstream>
 #include <typeinfo>
+#include <iostream>
 #include "Rectangle.h"
 
 Rectangle::Rectangle(int height, int width, const std::string &name, char pen) :
-    Shape(name, pen), height(height), width(width) {
+    Shape(name, pen) {
+
+    if (height >= 1) {
+        this->height = height;
+    } else {
+        std::cerr << "Error: height value must be greater than 1. Setting default value (1).\n";
+        this->height = 1;
+    }
+
+    if (width >= 1) {
+        this->width = width;
+    } else {
+        std::cerr << "Error: width value must be greater than 1. Setting default value (1).\n";
+        this->width = 1;
+    }
+
 }
 
 std::string Rectangle::toString() const {
     std::stringstream ss;
-    ss << "\nShape Information"
+    ss << "\n Shape Information"
     << "\n-----------------"
-    << "\nid: " << idNumber
+    << "\n id: " << idNumber
     << "\n Shape name: " << name
     << "\n Pen character: " << pen
     << "\n Height: " << height
