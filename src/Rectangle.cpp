@@ -7,7 +7,7 @@
 #include <iostream>
 #include "Rectangle.h"
 
-Rectangle::Rectangle(int height, int width, const std::string &name, char pen) :
+Rectangle::Rectangle(int height, int width, char pen, const std::string &name) :
     Shape(name, pen) {
 
     if (height >= 1) {
@@ -70,8 +70,8 @@ int Rectangle::perimeterScr() const {
 
 Canvas Rectangle::draw() const {
     Canvas canvas(height, width);
-    for (int i =0; i < canvas.getGrid().size(); ++i){
-        for(int j = 0; j < canvas.getGrid()[i].size(); ++j){
+    for (int i = 0; i < height; ++i){
+        for(int j = 0; j < width; ++j){
             canvas.put(i, j, pen);
         }
     }

@@ -6,7 +6,7 @@
 #include <iostream>
 #include "RightTriangle.h"
 
-RightTriangle::RightTriangle(int base, const std::string &name, char pen) :
+RightTriangle::RightTriangle(int base, char pen, const std::string &name) :
         Triangle(name, pen){
 
     if (base >= 1) {
@@ -63,7 +63,7 @@ Canvas RightTriangle::draw() const {
 
     for (int i = 0; i < base; ++i) {
         for (int j = 0; j <= i; ++j) {
-            std::cout << "*"; // Print stars for the right triangle
+            canvas.put(i, j, pen); // Print stars for the right triangle
         }
     }
     return canvas;

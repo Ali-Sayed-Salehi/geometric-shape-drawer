@@ -21,7 +21,7 @@ public:
     AcuteTriangle& operator=(AcuteTriangle&&) = default;
     ~AcuteTriangle() override = default;
 
-    explicit AcuteTriangle(int base, int height, const std::string& name = "Wedge", char pen = '*');
+    explicit AcuteTriangle(int base, char pen = '*', const std::string& name = "Wedge");
 
     // Getter for 'base'
     int getBase() const {

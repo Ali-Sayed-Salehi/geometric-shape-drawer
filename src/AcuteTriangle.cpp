@@ -6,7 +6,7 @@
 #include <sstream>
 #include "AcuteTriangle.h"
 
-AcuteTriangle::AcuteTriangle(int base, int height, const std::string &name, char pen) :
+AcuteTriangle::AcuteTriangle(int base, char pen, const std::string &name) :
     Triangle(name, pen) {
 
     if (base >= 1) {
@@ -66,14 +66,12 @@ int AcuteTriangle::perimeterScr() const {
 Canvas AcuteTriangle::draw() const {
     Canvas canvas(height, base);
 
-    for (int i = 0; i < base; ++i) {
-        for (int j = 0; j < base - i - 1; ++j) {
-            canvas.put(i, j, ' '); // Print leading spaces
-        }
-        for (int j = 0; j < 2 * i + 1; ++j) {
-            canvas.put(i, j, pen); // Print stars
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < height + i; ++j) {
+            if (j >= height - i - 1) {
+                canvas.put(i, j, pen);
+            }
         }
     }
-
     return canvas;
 }

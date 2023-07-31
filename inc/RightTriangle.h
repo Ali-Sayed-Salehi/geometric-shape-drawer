@@ -21,7 +21,7 @@ public:
     RightTriangle& operator=(RightTriangle&&) = default;
     ~RightTriangle() override = default;
 
-    explicit RightTriangle(int base, const std::string& name = "Ladder", char pen = '*');
+    explicit RightTriangle(int base, char pen = '*', const std::string& name = "Ladder");
 
     // Getter for 'base'
     int getBase() const {

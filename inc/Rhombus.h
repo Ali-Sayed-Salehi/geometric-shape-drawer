@@ -20,7 +20,7 @@ public:
     Rhombus& operator=(Rhombus&&) = default;
     ~Rhombus() override = default;
 
-    explicit Rhombus(int diagonal, const std::string& name = "Diamond", char pen = '*');
+    explicit Rhombus(int diagonal, char pen = '*', const std::string& name = "Diamond");
 
     // Getter for 'diagonal'
     int getDiagonal() const {

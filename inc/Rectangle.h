@@ -21,7 +21,7 @@ public:
     Rectangle& operator=(Rectangle&&) = default;
     ~Rectangle() override = default;
 
-    Rectangle(int height, int width, const std::string& name = "Door", char pen = '*');
+    Rectangle(int height, int width, char pen = '*', const std::string& name = "Door");
 
     // Getter for 'height'
     int getHeight() const {

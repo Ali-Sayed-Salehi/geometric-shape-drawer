@@ -6,7 +6,7 @@
 #include <sstream>
 #include "Rhombus.h"
 
-Rhombus::Rhombus(int diagonal, const std::string &name, char pen) : Shape(name, pen) {
+Rhombus::Rhombus(int diagonal, char pen, const std::string &name) : Shape(name, pen) {
 
     if (diagonal >= 1) {
         if (diagonal % 2 == 1) {
@@ -64,21 +64,19 @@ int Rhombus::perimeterScr() const {
 Canvas Rhombus::draw() const {
     Canvas canvas(diagonal, diagonal);
 
-    for (int i = 0; i < diagonal; ++i) {
-        for (int j = 0; j < diagonal - i - 1; ++j) {
-            canvas.put(i, j, ' '); // Print leading spaces
-        }
-        for (int j = 0; j < 2 * i + 1; ++j) {
-            canvas.put(i, j, pen); // Print stars for the top half of the rhombus
-        }
-    }
+    int midRow = diagonal / 2;
 
-    for (int i = diagonal - 2; i >= 0; --i) {
-        for (int j = 0; j < diagonal - i - 1; ++j) {
-            canvas.put(i, j, ' '); // Print leading spaces
-        }
-        for (int j = 0; j < 2 * i + 1; ++j) {
-            canvas.put(i, j, pen); // Print stars for the bottom half of the rhombus
+    for (int i = 0; i < diagonal; ++i) {
+        for (int j = 0; j < diagonal; ++j) {
+            if (i <= midRow) {
+                if (j >= midRow - i && j <= midRow + i) {
+                    canvas.put(i, j, '*');
+                }
+            } else {
+                if (j >= midRow - (diagonal - 1 - i) && j <= midRow + (diagonal - 1 - i)) {
+                    canvas.put(i, j, '*');
+                }
+            }
         }
     }
 

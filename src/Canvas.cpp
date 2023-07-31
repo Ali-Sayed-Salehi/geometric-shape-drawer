@@ -28,17 +28,20 @@ int Canvas::getColumns() const {
 
 Canvas Canvas::flip_horizontal() const {
 
-    Canvas flippedCanvas(*this);
-    for (auto& row : flippedCanvas.getGrid()) {
+    Canvas flippedCanvas = *this;
+    auto newGrid = flippedCanvas.getGrid();
+    for (auto& row : newGrid) {
         std::reverse(row.begin(), row.end());
     }
-
+    flippedCanvas.setGrid(newGrid);
     return flippedCanvas;
 }
 
 Canvas Canvas::flip_vertical() const {
     Canvas flippedCanvas(*this);
-    std::reverse(flippedCanvas.getGrid().begin(), flippedCanvas.getGrid().end());
+    auto newGrid = flippedCanvas.getGrid();
+    std::reverse(newGrid.begin(), newGrid.end());
+    flippedCanvas.setGrid(newGrid);
     return flippedCanvas;
 }
 
