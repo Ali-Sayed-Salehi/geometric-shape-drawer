@@ -37,7 +37,7 @@ public:
     double perimeterGeo() const override;
     int areaScr() const override;
     int perimeterScr() const override;
-    //Canvas draw() const;
+    Canvas draw() const override;
 
 };
 

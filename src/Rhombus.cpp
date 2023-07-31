@@ -60,3 +60,27 @@ int Rhombus::perimeterScr() const {
         return 1;
     }
 }
+
+Canvas Rhombus::draw() const {
+    Canvas canvas(diagonal, diagonal);
+
+    for (int i = 0; i < diagonal; ++i) {
+        for (int j = 0; j < diagonal - i - 1; ++j) {
+            canvas.put(i, j, ' '); // Print leading spaces
+        }
+        for (int j = 0; j < 2 * i + 1; ++j) {
+            canvas.put(i, j, pen); // Print stars for the top half of the rhombus
+        }
+    }
+
+    for (int i = diagonal - 2; i >= 0; --i) {
+        for (int j = 0; j < diagonal - i - 1; ++j) {
+            canvas.put(i, j, ' '); // Print leading spaces
+        }
+        for (int j = 0; j < 2 * i + 1; ++j) {
+            canvas.put(i, j, pen); // Print stars for the bottom half of the rhombus
+        }
+    }
+
+    return canvas;
+}

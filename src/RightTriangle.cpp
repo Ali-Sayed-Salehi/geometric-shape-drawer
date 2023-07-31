@@ -58,4 +58,15 @@ int RightTriangle::perimeterScr() const {
     }
 }
 
+Canvas RightTriangle::draw() const {
+    Canvas canvas(height, base);
+
+    for (int i = 0; i < base; ++i) {
+        for (int j = 0; j <= i; ++j) {
+            std::cout << "*"; // Print stars for the right triangle
+        }
+    }
+    return canvas;
+}
+
 

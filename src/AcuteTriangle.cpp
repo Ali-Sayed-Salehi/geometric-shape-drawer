@@ -62,3 +62,18 @@ int AcuteTriangle::perimeterScr() const {
         return 1;
     }
 }
+
+Canvas AcuteTriangle::draw() const {
+    Canvas canvas(height, base);
+
+    for (int i = 0; i < base; ++i) {
+        for (int j = 0; j < base - i - 1; ++j) {
+            canvas.put(i, j, ' '); // Print leading spaces
+        }
+        for (int j = 0; j < 2 * i + 1; ++j) {
+            canvas.put(i, j, pen); // Print stars
+        }
+    }
+
+    return canvas;
+}

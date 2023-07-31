@@ -8,6 +8,7 @@
 
 #include <cstddef>
 #include <string>
+#include "Canvas.h"
 
 class Shape {
 protected:
@@ -91,7 +92,7 @@ public:
     /*
      * draws a textual image of the shape on a Canvas object using the shape’s pen character
      */
-    //virtual Canvas draw() const = 0;
+    virtual Canvas draw() const = 0;
 
 };
 

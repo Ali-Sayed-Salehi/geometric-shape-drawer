@@ -68,3 +68,13 @@ int Rectangle::perimeterScr() const {
     return perimeter;
 }
 
+Canvas Rectangle::draw() const {
+    Canvas canvas(height, width);
+    for (int i =0; i < canvas.getGrid().size(); ++i){
+        for(int j = 0; j < canvas.getGrid()[i].size(); ++j){
+            canvas.put(i, j, pen);
+        }
+    }
+    return canvas;
+}
+
