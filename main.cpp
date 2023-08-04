@@ -24,6 +24,13 @@ int main()
     Canvas rectCan{ rectangle.draw() };
     cout << rectCan << endl;
 
+    Rectangle rectangle2(2, 3, '-');
+    Canvas rectCan2{ rectangle2.draw() };
+    cout << rectCan2 << endl;
+
+    rectCan.overlap(rectCan2, 1, 2);
+    cout << rectCan << endl;
+
     RightTriangle rightTriangle(5, '*');
     Canvas rt{ rightTriangle.draw().flip_horizontal() };
     cout << rt << endl;
@@ -36,8 +43,15 @@ int main()
     Canvas at{ acuteTriangle.draw() };
     cout << at << endl;
 
-    rh.overlap(at, 2, 0);
+    rh.overlap(at, 0, 0);
     cout << rh << endl;
+*/
+/*
+
+    const Shape* rectangle = new Rectangle(2, 2);
+
+    cout << typeid(rectangle).name() << endl;
+    cout << typeid(*rectangle).name() << endl;
 */
 
     return 0;

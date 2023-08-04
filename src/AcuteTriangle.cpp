@@ -38,7 +38,7 @@ std::string AcuteTriangle::toString() const {
        << "\n Textual perimeter: " << this -> perimeterScr()
        << "\n Geometric perimeter: " << this -> perimeterGeo()
        << "\n Static type : " << typeid(this).name()
-       << "\n Static type : " << typeid(*this).name() << std::endl;
+       << "\n Dynamic type : " << typeid(*this).name() << std::endl;
 
     return ss.str();
 }

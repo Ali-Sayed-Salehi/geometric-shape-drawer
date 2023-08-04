@@ -91,19 +91,25 @@ void Canvas::overlap(const Canvas &canvas, int r, int c) {
         throw std::out_of_range{ "Canvas index out of range" };
     }
 
-    for (auto& row : canvas.getGrid()){
+    for (int i = 0; i < canvas.getRows(); ++i) {
+        for (int j = 0; j < canvas.getColumns(); ++j) {
+            if (canvas.get(i, j) != ' ') this->put(i + r, j + c, canvas.get(i, j));
+        }
+    }
+
+/*    for (auto& row : canvas.getGrid()){
         for (auto& element: row){
-            if (element != ' ') put(r, c, element);
+            if (element != ' ') this->put(r, c, element);
 
             // go to the next element in this->grid
-            if ((c + 1) > this->getColumns() - 1) {
+            if (((c + 1) > this->getColumns() - 1) || ((c + 1) > canvas.getColumns() - 1)) {
                 c = 0;
                 r++;
             } else {
                 c++;
             }
         }
-    }
+    }*/
 }
 
 std::ostream &operator<<(std::ostream &sout, const Canvas &can) {
